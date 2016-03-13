@@ -36,3 +36,6 @@ go get github.com/browny/gogoo
 - [Converting the service account credential to other formats](https://cloud.google.com/storage/docs/authentication#converting-the-private-key) (`.p12` to `.pem`)
 
 
+## License
+
+gogoo is MIT License.
