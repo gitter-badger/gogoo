@@ -9,5 +9,5 @@ install:
 
 script:
   sh scripts/build-asset.sh
-  go build ./...
+  make install
 

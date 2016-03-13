@@ -1,7 +1,7 @@
-.PHONY: build deps test clean
+.PHONY: install deps test clean
 
-build:
-	go build ./...
+install:
+	go install ./...
 
 deps:
 	go get github.com/cihub/seelog

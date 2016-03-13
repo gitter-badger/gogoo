@@ -11,6 +11,7 @@ gogoo encapsulates google cloud api for more specific operation logic
 - [cloud monitoring](https://godoc.org/google.golang.org/api/cloudmonitoring/v2beta2)
 - [cloudsql](https://godoc.org/google.golang.org/api/sqladmin/v1beta4)
 - [replicapoolupdater](https://godoc.org/google.golang.org/api/replicapoolupdater/v1beta1)
+- [pubsub](https://godoc.org/google.golang.org/cloud/pubsub)
 
 ## Install
 

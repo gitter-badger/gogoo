@@ -4,11 +4,13 @@ package gogoo
 import (
 	"os"
 
-	"github.com/browny/gogoo/cloudsql"
-	"github.com/browny/gogoo/gce"
-	"github.com/browny/gogoo/gcm"
-	"github.com/browny/gogoo/gds"
-	"github.com/browny/gogoo/replicapoolupdater"
+	"gogoo/cloudsql"
+	"gogoo/gce"
+	"gogoo/gcm"
+	"gogoo/gds"
+	"gogoo/pubsub"
+	"gogoo/replicapoolupdater"
+
 	"github.com/facebookgo/inject"
 )
 
@@ -18,6 +20,7 @@ var gdsManager gds.GdsManager
 var gcmManager gcm.GcmManager
 var cloudSqlManager cloudsql.CloudSqlManager
 var rpuManager replicapoolupdater.RpuManager
+var pbsbManager pubsub.PbsbManager
 
 // Input parameter object to initialize GoGoo
 type AppContext struct {
@@ -28,10 +31,12 @@ type AppContext struct {
 
 // GoGoo acts as the handler to access different subpackages
 type GoGoo struct {
-	*gce.GceManager           `inject:""`
-	*gds.GdsManager           `inject:""`
-	*gcm.GcmManager           `inject:""`
-	*cloudsql.CloudSqlManager `inject:""`
+	*gce.GceManager                `inject:""`
+	*gds.GdsManager                `inject:""`
+	*gcm.GcmManager                `inject:""`
+	*cloudsql.CloudSqlManager      `inject:""`
+	*replicapoolupdater.RpuManager `inject:""`
+	*pubsub.PbsbManager            `inject:""`
 }
 
 // Used to create a new GoGoo object.
@@ -51,6 +56,7 @@ func buildDependencyGraph(ctx AppContext) {
 	cloudmonitorService, _ := gcm.BuildCloudMonitorService(ctx.ServiceAccount, ctx.KeyOfServiceAccount)
 	sqlService, _ := cloudsql.BuildCloudSqlService(ctx.ServiceAccount, ctx.KeyOfServiceAccount)
 	rpuService, _ := replicapoolupdater.BuildRpuService(ctx.ServiceAccount, ctx.KeyOfServiceAccount)
+	pbsbService, _ := pubsub.BuildPbsbService(ctx.ServiceAccount, ctx.KeyOfServiceAccount)
 
 	var g inject.Graph
 	err := g.Provide(
@@ -59,11 +65,13 @@ func buildDependencyGraph(ctx AppContext) {
 		&inject.Object{Value: cloudmonitorService},
 		&inject.Object{Value: sqlService},
 		&inject.Object{Value: rpuService},
+		&inject.Object{Value: pbsbService},
 		&inject.Object{Value: &gdsManager},
 		&inject.Object{Value: &gceManager},
 		&inject.Object{Value: &gcmManager},
 		&inject.Object{Value: &cloudSqlManager},
 		&inject.Object{Value: &rpuManager},
+		&inject.Object{Value: &pbsbManager},
 		&inject.Object{Value: &gogoo},
 	)
 	if err != nil {
