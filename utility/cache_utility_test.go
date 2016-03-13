@@ -27,7 +27,7 @@ func TestCache(t *testing.T) {
 	fnWrite("test-value")
 	assert.Equal(t, "test-value", fnRead())
 
-	// case overwite
+	// case overwrite
 	fnWrite("test-value-2")
 	assert.Equal(t, "test-value-2", fnRead())
 

@@ -1,3 +1,4 @@
+// Package gogoo encapsulates google cloud api for more specific operation logic
 package gogoo
 
 import (
@@ -18,12 +19,14 @@ var gcmManager gcm.GcmManager
 var cloudSqlManager cloudsql.CloudSqlManager
 var rpuManager replicapoolupdater.RpuManager
 
+// Input parameter object to initialize GoGoo
 type AppContext struct {
 	ServiceAccount      string
 	KeyOfServiceAccount []byte
 	ProjectId           string
 }
 
+// GoGoo acts as the handler to access different subpackages
 type GoGoo struct {
 	*gce.GceManager           `inject:""`
 	*gds.GdsManager           `inject:""`
@@ -31,12 +34,14 @@ type GoGoo struct {
 	*cloudsql.CloudSqlManager `inject:""`
 }
 
+// Used to create a new GoGoo object.
 func New(ctx AppContext) *GoGoo {
 	buildDependencyGraph(ctx)
 
 	return &gogoo
 }
 
+// Construct dependency graph
 func buildDependencyGraph(ctx AppContext) {
 	computeService, _ := gce.BuildGceService(ctx.ServiceAccount, ctx.KeyOfServiceAccount)
 	_, client, _ := gds.BuildGdsContext(
@@ -67,5 +72,4 @@ func buildDependencyGraph(ctx AppContext) {
 	if err := g.Populate(); err != nil {
 		os.Exit(1)
 	}
-	// :~)
 }

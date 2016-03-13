@@ -98,7 +98,7 @@ func IsBase32Encoded(data string) bool {
 	return true
 }
 
-// RandSeq generates the random string of lenght n
+// RandSeq generates the random string of length n
 func RandSeq(n int) string {
 	rand.Seed(time.Now().UnixNano())
 

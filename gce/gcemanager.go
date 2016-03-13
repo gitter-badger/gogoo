@@ -1,4 +1,4 @@
-// Package gce provides utility functions to communicate with compute engine API
+// Package gce communicates with compute engine
 package gce
 
 import (
