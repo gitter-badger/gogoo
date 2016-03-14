@@ -4,13 +4,13 @@ package gogoo
 import (
 	"os"
 
-	"gogoo/cloudsql"
-	"gogoo/gce"
-	"gogoo/gcm"
-	"gogoo/gds"
-	"gogoo/pubsub"
-	"gogoo/replicapoolupdater"
-	"gogoo/storage"
+	"github.com/browny/gogoo/cloudsql"
+	"github.com/browny/gogoo/gce"
+	"github.com/browny/gogoo/gcm"
+	"github.com/browny/gogoo/gds"
+	"github.com/browny/gogoo/pubsub"
+	"github.com/browny/gogoo/replicapoolupdater"
+	"github.com/browny/gogoo/storage"
 
 	"github.com/facebookgo/inject"
 )

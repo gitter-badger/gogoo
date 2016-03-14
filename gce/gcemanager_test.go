@@ -10,9 +10,9 @@ import (
 	"testing"
 	"time"
 
-	"gogoo/config"
-	"gogoo/gce"
-	"gogoo/utility"
+	"github.com/browny/gogoo/config"
+	"github.com/browny/gogoo/gce"
+	"github.com/browny/gogoo/utility"
 
 	"github.com/facebookgo/inject"
 	"github.com/stretchr/testify/assert"

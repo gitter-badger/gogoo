@@ -24,6 +24,13 @@ go get github.com/browny/gogoo
 
 ## Develop
 
+- Clone this project to your `$GOPATH/src`
+
+```sh
+cd $GOPATH/src
+git clone git@github.com:browny/gogoo.git github.com/browny/gogoo
+```
+
 - You should setup one google cloud project, and create a [service account](https://developers.google.com/identity/protocols/OAuth2ServiceAccount)
 - Enable the relating API you want to test
 - Create a `./gogoo/config/config.json` file to containes below information

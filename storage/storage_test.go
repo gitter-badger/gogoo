@@ -6,8 +6,8 @@ import (
 	"os"
 	"testing"
 
-	"gogoo/config"
-	"gogoo/storage"
+	"github.com/browny/gogoo/config"
+	"github.com/browny/gogoo/storage"
 
 	"github.com/facebookgo/inject"
 	"github.com/stretchr/testify/suite"

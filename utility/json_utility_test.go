@@ -4,7 +4,7 @@ import (
 	"log"
 	"testing"
 
-	. "gogoo/utility"
+	. "github.com/browny/gogoo/utility"
 )
 
 func TestJsonStringToMap(t *testing.T) {

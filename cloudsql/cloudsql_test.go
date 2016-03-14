@@ -7,8 +7,8 @@ import (
 	"strings"
 	"testing"
 
-	"gogoo/cloudsql"
-	"gogoo/config"
+	"github.com/browny/gogoo/cloudsql"
+	"github.com/browny/gogoo/config"
 
 	"github.com/facebookgo/inject"
 	"github.com/stretchr/testify/assert"

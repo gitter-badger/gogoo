@@ -1,6 +1,7 @@
 .PHONY: install deps test clean
 
 install:
+	sh scripts/build-asset.sh
 	go install ./...
 
 deps:
@@ -25,4 +26,5 @@ deps:
 	go get github.com/satori/go.uuid
 
 test:
+	sh scripts/build-asset.sh
 	go test ./...
