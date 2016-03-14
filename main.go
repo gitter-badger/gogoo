@@ -10,6 +10,7 @@ import (
 	"gogoo/gds"
 	"gogoo/pubsub"
 	"gogoo/replicapoolupdater"
+	"gogoo/storage"
 
 	"github.com/facebookgo/inject"
 )
@@ -21,6 +22,7 @@ var gcmManager gcm.GcmManager
 var cloudSqlManager cloudsql.CloudSqlManager
 var rpuManager replicapoolupdater.RpuManager
 var pbsbManager pubsub.PbsbManager
+var storageManager storage.StorageManager
 
 // Input parameter object to initialize GoGoo
 type AppContext struct {
@@ -37,6 +39,7 @@ type GoGoo struct {
 	*cloudsql.CloudSqlManager      `inject:""`
 	*replicapoolupdater.RpuManager `inject:""`
 	*pubsub.PbsbManager            `inject:""`
+	*storage.StorageManager        `inject:""`
 }
 
 // Used to create a new GoGoo object.
@@ -57,6 +60,7 @@ func buildDependencyGraph(ctx AppContext) {
 	sqlService, _ := cloudsql.BuildCloudSqlService(ctx.ServiceAccount, ctx.KeyOfServiceAccount)
 	rpuService, _ := replicapoolupdater.BuildRpuService(ctx.ServiceAccount, ctx.KeyOfServiceAccount)
 	pbsbService, _ := pubsub.BuildPbsbService(ctx.ServiceAccount, ctx.KeyOfServiceAccount)
+	storageService, _ := storage.BuildStorageService(ctx.ServiceAccount, ctx.KeyOfServiceAccount)
 
 	var g inject.Graph
 	err := g.Provide(
@@ -66,12 +70,14 @@ func buildDependencyGraph(ctx AppContext) {
 		&inject.Object{Value: sqlService},
 		&inject.Object{Value: rpuService},
 		&inject.Object{Value: pbsbService},
+		&inject.Object{Value: storageService},
 		&inject.Object{Value: &gdsManager},
 		&inject.Object{Value: &gceManager},
 		&inject.Object{Value: &gcmManager},
 		&inject.Object{Value: &cloudSqlManager},
 		&inject.Object{Value: &rpuManager},
 		&inject.Object{Value: &pbsbManager},
+		&inject.Object{Value: &storageManager},
 		&inject.Object{Value: &gogoo},
 	)
 	if err != nil {

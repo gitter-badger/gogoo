@@ -1,6 +1,6 @@
 // Package pubsub communicates with pub/sub.
 // https://godoc.org/google.golang.org/cloud/pubsub.
-// https://godoc.org/google.golang.org/api/pubsub/v1beta2.
+// https://godoc.org/google.golang.org/api/pubsub/v1.
 package pubsub
 
 import (
@@ -9,7 +9,7 @@ import (
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/google"
 	"golang.org/x/oauth2/jwt"
-	pbsb "google.golang.org/api/pubsub/v1beta2"
+	pbsb "google.golang.org/api/pubsub/v1"
 )
 
 // BuildPbsbService builds the singlton service for PbsbManager
@@ -48,5 +48,5 @@ func (manager *PbsbManager) ListTopics(projectId string) {
 		return
 	}
 
-	log.Printf("topics: %+v", response.Topics[0])
+	log.Printf("topics: %+v", response.Topics[0].Name)
 }

@@ -4,14 +4,17 @@
 [![Travis Build Status](https://travis-ci.org/browny/gogoo.svg?branch=master)](https://travis-ci.org/browny/gogoo)
 [![Go Report Card](https://goreportcard.com/badge/github.com/browny/gogoo)](https://goreportcard.com/report/github.com/browny/gogoo)
 
-gogoo encapsulates google cloud api for more specific operation logic
+**gogoo** encapsulates [google cloud api](https://godoc.org/google.golang.org/api) for more specific operation logic. Below are
+the including components
 
-- [compute engine](https://godoc.org/google.golang.org/api/compute/v1)
+- [compute engine](https://godoc.org/google.golang.org/api/compute/v1) - v1
 - [datastore](https://godoc.org/google.golang.org/cloud/datastore)
-- [cloud monitoring](https://godoc.org/google.golang.org/api/cloudmonitoring/v2beta2)
-- [cloudsql](https://godoc.org/google.golang.org/api/sqladmin/v1beta4)
-- [replicapoolupdater](https://godoc.org/google.golang.org/api/replicapoolupdater/v1beta1)
-- [pubsub](https://godoc.org/google.golang.org/cloud/pubsub)
+- [cloud monitoring](https://godoc.org/google.golang.org/api/cloudmonitoring/v2beta2) - v2beta2
+- [cloudsql](https://godoc.org/google.golang.org/api/sqladmin/v1beta4) - v1beta4
+- [replicapoolupdater](https://godoc.org/google.golang.org/api/replicapoolupdater/v1beta1) -v1beta1
+- [pubsub](https://godoc.org/google.golang.org/api/pubsub/v1) - v1
+- [storage](https://godoc.org/google.golang.org/api/storage/v1) - v1
+
 
 ## Install
 
