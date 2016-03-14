@@ -24,7 +24,7 @@ go get github.com/browny/gogoo
 
 ## Develop
 
-- You should setup one googld cloud project, and create a [service account](https://developers.google.com/identity/protocols/OAuth2ServiceAccount)
+- You should setup one google cloud project, and create a [service account](https://developers.google.com/identity/protocols/OAuth2ServiceAccount)
 - Enable the relating API you want to test
 - Create a `./gogoo/config/config.json` file to containes below information
 
