@@ -10,7 +10,7 @@ import (
 	"text/template"
 	"time"
 
-	"github.com/browny/gogoo/utility"
+	"gogoo/utility"
 
 	log "github.com/cihub/seelog"
 	"golang.org/x/oauth2"

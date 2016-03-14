@@ -1,14 +1,9 @@
 package utility_test
 
 import (
-	"fmt"
-	"io/ioutil"
 	"log"
 	"testing"
 
-	"github.com/stretchr/testify/assert"
-	"github.com/xeipuuv/gojsonschema"
-	"gogoo/config"
 	. "gogoo/utility"
 )
 

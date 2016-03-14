@@ -13,10 +13,16 @@ deps:
 	go get golang.org/x/oauth2/jwt
 	go get google.golang.org/api/cloudmonitoring/v2beta2
 	go get google.golang.org/api/compute/v1
+	go get google.golang.org/api/pubsub/v1
 	go get google.golang.org/api/replicapoolupdater/v1beta1
 	go get google.golang.org/api/sqladmin/v1beta4
+	go get google.golang.org/api/storage/v1
 	go get google.golang.org/cloud
 	go get google.golang.org/cloud/datastore
+	# below is for test
+	go get github.com/stretchr/testify/suite
+	go get github.com/patrickmn/go-cache
+	go get github.com/satori/go.uuid
 
 test:
 	go test ./...
