@@ -1,10 +1,11 @@
-.PHONY: install deps test clean
+.PHONY: install deps 
 
 install:
 	sh scripts/build-asset.sh
 	go install ./...
 
 deps:
+	sh scripts/build-asset.sh
 	go get github.com/cihub/seelog
 	go get github.com/facebookgo/inject
 	go get github.com/mjibson/esc
@@ -24,7 +25,3 @@ deps:
 	go get github.com/stretchr/testify/suite
 	go get github.com/patrickmn/go-cache
 	go get github.com/satori/go.uuid
-
-test:
-	sh scripts/build-asset.sh
-	go test ./...
