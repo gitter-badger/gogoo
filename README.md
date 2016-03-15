@@ -1,5 +1,7 @@
 # gogoo 
 
+[![Join the chat at https://gitter.im/browny/gogoo](https://badges.gitter.im/browny/gogoo.svg)](https://gitter.im/browny/gogoo?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![GoDoc](https://godoc.org/github.com/browny/gogoo?status.svg)](http://godoc.org/github.com/browny/gogoo)
 [![Travis Build Status](https://travis-ci.org/browny/gogoo.svg?branch=master)](https://travis-ci.org/browny/gogoo)
 [![Go Report Card](https://goreportcard.com/badge/github.com/browny/gogoo)](https://goreportcard.com/report/github.com/browny/gogoo)
